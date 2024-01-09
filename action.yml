@@ -20,10 +20,9 @@ runs:
   using: "composite"
   steps:
     - run: |
-        [ ! -x /home/runner/go/bin/amass ] && go install -v github.com/owasp-amass/amass/v3/...@master
-        echo "/home/runner/go/bin/" >> $GITHUB_PATH
+        [ ! -x /home/runner/amass ] && wget https://github.com/owasp-amass/amass/releases/download/v3.23.3/amass_Linux_amd64.zip -O /home/runner/amass_Linux_amd64.zip && unzip /home/runner/amass_Linux_amd64.zip /home/runner/ && ls -al /home/runner/
       shell: bash
 
     - run: |
-        /home/runner/go/bin/amass enum -src -config=${{ inputs.config }} -o=${{ inputs.output }}      
+        /home/runner/amass enum -src -config=${{ inputs.config }} -o=${{ inputs.output }}      
       shell: bash
