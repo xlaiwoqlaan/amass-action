@@ -5,15 +5,15 @@ branding:
   color: "blue"
 
 inputs:
+  domain:
+    description: "target domain"
 
   output:
     description: "File to save output result"
     required: false
     default: "amass-result.txt"   
 
-  config:
-    description: "Path to the INI configuration file."
-    required: true     
+
 
 
 runs:
@@ -24,5 +24,5 @@ runs:
       shell: bash
 
     - run: |
-        /home/runner/amass_Linux_amd64/amass enum -src -config=${{ inputs.config }} -o=${{ inputs.output }}      
+        /home/runner/amass_Linux_amd64/amass enum -d ${{ inputs.domain }} -o=${{ inputs.output }}      
       shell: bash
