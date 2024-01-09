@@ -20,7 +20,7 @@ runs:
   using: "composite"
   steps:
     - run: |
-        [ ! -x /home/runner/amass ] && wget https://github.com/owasp-amass/amass/releases/download/v3.23.3/amass_Linux_amd64.zip -O /home/runner/amass_Linux_amd64.zip && unzip /home/runner/amass_Linux_amd64.zip /home/runner/ && ls -al /home/runner/
+        [ ! -x /home/runner/amass ] && wget https://github.com/owasp-amass/amass/releases/download/v3.23.3/amass_Linux_amd64.zip && unzip amass_Linux_amd64.zip && ls -al /home/runner/ && pwd
       shell: bash
 
     - run: |
