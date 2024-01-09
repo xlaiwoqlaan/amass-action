@@ -20,9 +20,9 @@ runs:
   using: "composite"
   steps:
     - run: |
-        [ ! -x /home/runner/amass ] && wget https://github.com/owasp-amass/amass/releases/download/v3.23.3/amass_Linux_amd64.zip && unzip amass_Linux_amd64.zip && ls -al /home/runner/ && pwd
+        [ ! -x /home/runner/amass ] && cd  /home/runner && wget https://github.com/owasp-amass/amass/releases/download/v3.23.3/amass_Linux_amd64.zip && unzip amass_Linux_amd64.zip && ls -al /home/runner/amass_Linux_amd64 && pwd
       shell: bash
 
     - run: |
-        /home/runner/amass enum -src -config=${{ inputs.config }} -o=${{ inputs.output }}      
+        /home/runner/amass_Linux_amd64/amass enum -src -config=${{ inputs.config }} -o=${{ inputs.output }}      
       shell: bash
